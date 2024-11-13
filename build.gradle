@@ -1,0 +1,42 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral() // Repositorio central de Maven
+    maven { url 'https://repo.serenity-bdd.info/repository/maven-public/' } // Repositorio de Serenity BDD
+}
+
+
+dependencies {
+    // Dependencia principal de Serenity BDD
+    //implementation 'net.serenity-bdd:serenity-core:2.5.0'
+// https://mvnrepository.com/artifact/net.serenity-bdd/serenity-core
+    implementation group: 'net.serenity-bdd', name: 'serenity-core', version: '4.2.5'
+
+    // Dependencia de Cucumber
+    implementation 'io.cucumber:cucumber-java:7.10.0'
+    implementation 'io.cucumber:cucumber-spring:7.10.0'
+
+    // Dependencia de Serenity Cucumber para integrar Serenity con Cucumber
+   // implementation 'net.serenity-bdd:serenity-cucumber:2.3.0'
+// https://mvnrepository.com/artifact/net.serenity-bdd/serenity-cucumber
+    implementation group: 'net.serenity-bdd', name: 'serenity-cucumber', version: '4.2.7'
+
+    // Usamos una versión más antigua de serenity-webdriver
+    //implementation 'net.serenity-bdd:serenity-webdriver:2.3.0'
+    implementation 'net.serenity-bdd:serenity-webdriver:3.0.0'
+
+    // Dependencia para las pruebas con JUnit (si usas JUnit)
+    testImplementation 'net.serenity-bdd:serenity-junit:2.5.0'
+
+    // Dependencia de Selenium
+    implementation 'org.seleniumhq.selenium:selenium-java:4.8.0'
+}
+
+test {
+    useJUnitPlatform()
+}
